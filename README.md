@@ -1,6 +1,6 @@
 # PGP Encryption and Decryption
 
-**Note:**
+**Release Note:**
 1. This is a spring boot project which contain logic for file encryption and decryption using PGP.
 2. Two dependies or you can say jar are used (bcprov-jdk15on & bcpg-jdk15on) which is mentioned in pom.xml
 3. For creating public key and private key you can use any software or even write java code for that. For this implementation I have used PGP Desktop for creating this keys.
@@ -12,8 +12,8 @@ _Note: If you are facing any issue related to this implementation feel free to c
 
 _Contact: saudagar.yadav@gmail.com / https://www.linkedin.com/in/saudagar-yadav-31459b99/_
 
+**I upload new implementation related to Java every week. Let me know if you need any specific implementation.**
 
-
-##### I upload new implementation related to Java every week. Let me know if you need any specific implementation.
+_**Hope this is helpful to you. See you next week. Haapy coding🙂**_
 
 
