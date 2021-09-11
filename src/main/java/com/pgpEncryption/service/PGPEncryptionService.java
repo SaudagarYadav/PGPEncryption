@@ -51,22 +51,24 @@ public class PGPEncryptionService {
 	private static final int[] MASTER_KEY_CERTIFICATION_TYPES = new int[] { PGPSignature.POSITIVE_CERTIFICATION,
 			PGPSignature.CASUAL_CERTIFICATION, PGPSignature.NO_CERTIFICATION, PGPSignature.DEFAULT_CERTIFICATION };
 	
-    public static void encrypt(String publicKeyFileName, String inputFileName,String outputFileName, boolean asciiArmored, boolean integrityCheck) throws Exception {
+    public static boolean encrypt(String publicKeyFileName, String inputFileName,String outputFileName, boolean asciiArmored, boolean integrityCheck) throws Exception {
     	FileInputStream keyIn = null;
     	FileOutputStream out = null;
     	try {
     		keyIn = new FileInputStream(publicKeyFileName);
     		out = new FileOutputStream(outputFileName);
     		encryptFile(out, inputFileName, readPublicKey(keyIn), asciiArmored, integrityCheck);
+    		return true;
 		} catch (Exception e) {
 			e.printStackTrace();
+			return false;
 		} finally {
 			closeStream(out);
 			closeStream(keyIn);
 		}
     }
 
-    public static void decrypt(String inputFileName,String outputFileName, String secretKeyFileName, String passphrase) throws Exception {
+    public static boolean decrypt(String inputFileName,String outputFileName, String secretKeyFileName, String passphrase) throws Exception {
         FileInputStream in = null;
         FileInputStream keyIn = null;
         FileOutputStream out = null;
@@ -76,8 +78,10 @@ public class PGPEncryptionService {
         	keyIn = new FileInputStream(secretKeyFileName);
         	out = new FileOutputStream(outputFileName);
         	decryptFile(in, out, keyIn, passphrase.toCharArray());
+        	return true;
 		} catch (Exception e) {
 			e.printStackTrace();
+			return false;
 		} finally {
 			closeStream(in);
 			closeStream(out);
@@ -231,7 +235,7 @@ public class PGPEncryptionService {
 		}
 	}
 
-	public static void encryptFile(OutputStream out, String fileName, PGPPublicKey encKey, boolean armor, boolean withIntegrityCheck) throws IOException, NoSuchProviderException, PGPException {
+	public static boolean encryptFile(OutputStream out, String fileName, PGPPublicKey encKey, boolean armor, boolean withIntegrityCheck) throws IOException, NoSuchProviderException, PGPException {
 		
 		Security.addProvider(new BouncyCastleProvider());
 		OutputStream encDataGenerator = null;
@@ -256,11 +260,13 @@ public class PGPEncryptionService {
 			final byte[] bytes = bOut.toByteArray();
 			encDataGenerator = encryptedDataGenerator.open(out, bytes.length);
 			encDataGenerator.write(bytes);
+			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			closeStream(encDataGenerator);
 		}
+		return false;
 
 	}
 
