@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "271a0af1-7548-49ab-a52a-799f193014ec",
+		"name": "Sample",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Encryption",
+			"item": [
+				{
+					"name": "Encrypt",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"inputFile\": \"C:\\\\Users\\\\saudyadav\\\\Documents\\\\SFTP.XML\",\r\n    \"outputFile\": \"C:\\\\Users\\\\saudyadav\\\\Documents\\\\SFTP1.XML\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9099/encrypt",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9099",
+							"path": [
+								"encrypt"
+							],
+							"query": [
+								{
+									"key": "inputFile",
+									"value": "Documents\\\\SFTP.XML",
+									"disabled": true
+								},
+								{
+									"key": "outputFile",
+									"value": "Documents\\\\SFTP1.XML",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Decrypt",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"inputFile\": \"C:\\\\Users\\\\saudyadav\\\\Documents\\\\SFTP1.XML\",\r\n    \"outputFile\": \"C:\\\\Users\\\\saudyadav\\\\Documents\\\\SFTP2.XML\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{EndPointURL}}/poc/decrypt?inputFilename=testencrypted5.xml&outputFilename=test1223456.xml",
+							"host": [
+								"{{EndPointURL}}"
+							],
+							"path": [
+								"poc",
+								"decrypt"
+							],
+							"query": [
+								{
+									"key": "inputFilename",
+									"value": "testencrypted5.xml"
+								},
+								{
+									"key": "outputFilename",
+									"value": "test1223456.xml"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
