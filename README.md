@@ -3,10 +3,9 @@
 **Release Note:**
 1. This is a spring boot project which contain logic for file encryption and decryption using PGP.
 2. Two dependies or you can say jar are used (bcprov-jdk15on & bcpg-jdk15on) which is mentioned in pom.xml
-3. For creating public key and private key you can use any software or even write java code for that. For this implementation I have used PGP Desktop for creating this keys.
-4. For simplicity and better understanding, I have not used properties file of spring and all data which is required are mention in controller or service class directly.
-5. In real life project this is not good practice make sure to use properties file and remove hard coded string
-
+3. For creating public key and private key you can use any software or even write java code for that. For this implementation I have used Kleopatra(https://www.gpg4win.org/download.html) for creating this keys.
+5. For simplicity and better understanding, I have not used properties file of spring and all data which is required are mention in controller or service class directly.
+6. In real life project this is not good practice make sure to use properties file and remove hard coded strings.
 
 _Note: If you are facing any issue related to this implementation feel free to contact me._
 
