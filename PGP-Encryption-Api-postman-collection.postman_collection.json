@@ -1,0 +1,81 @@
+{
+	"info": {
+		"_postman_id": "482582f3-da0a-4208-8b0c-9f34a4140a9c",
+		"name": "PGP-Encryption-Api-postman-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sample request",
+			"item": [
+				{
+					"name": "Encrypt",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"inputFile\": \"Input File path\",\r\n    \"outputFile\": \"Encrypted file path\",\r\n    \"publicKey\":\"public key path\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9099/encrypt",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9099",
+							"path": [
+								"encrypt"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Decrypt",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"inputFile\": \"Encrypted file path\",\r\n    \"outputFile\": \"Decrypted file path\",\r\n    \"passphrase\":\"passphrase\",\r\n    \"privateKey\":\"private key path\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9099/decrypt",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9099",
+							"path": [
+								"decrypt"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
