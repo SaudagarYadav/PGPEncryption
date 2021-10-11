@@ -17,7 +17,7 @@ import com.pgpEncryption.bean.RequestBean;
 import com.pgpEncryption.service.PGPEncryptionService;
 
 @RestController
-public class TestController {
+public class Controller {
 
 	boolean asciiArmored = false;
 	boolean integrityCheck = false;
