@@ -8,11 +8,8 @@ import java.util.Map;
 import org.bouncycastle.openpgp.PGPException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,10 +19,6 @@ import com.pgpEncryption.service.PGPEncryptionService;
 @RestController
 public class TestController {
 
-	public String fileLocation = "C:\\Temp\\";
-	public String publicKeyFileName = "C:\\Users\\saudyadav\\OneDrive - Deloitte (O365D)\\Desktop Backup\\PGP\\Public.asc";
-	public String privateKeyFileName = "C:\\Users\\saudyadav\\OneDrive - Deloitte (O365D)\\Desktop Backup\\PGP\\Private.asc";
-	public String passphare = "123456789";
 	boolean asciiArmored = false;
 	boolean integrityCheck = false;
 
@@ -35,7 +28,7 @@ public class TestController {
 
 		ResponseEntity entity = null;
 		try {
-			boolean status = PGPEncryptionService.encrypt(publicKeyFileName, req.getInputFile(), req.getOutputFile(), asciiArmored, integrityCheck);
+			boolean status = PGPEncryptionService.encrypt(req.getPublicKey(), req.getInputFile(), req.getOutputFile(), asciiArmored, integrityCheck);
 
 			if (status) {
 				Map<String, String> resposne = new HashMap<String, String>();
@@ -58,7 +51,7 @@ public class TestController {
 		ResponseEntity entity = null;
 		try {
 			
-			boolean status = PGPEncryptionService.decrypt(req.getInputFile(), req.getOutputFile(), privateKeyFileName, passphare);
+			boolean status = PGPEncryptionService.decrypt(req.getInputFile(), req.getOutputFile(), req.getPrivateKey(), req.getPassphrase());
 			
 			// reponse
 			if (status) {
