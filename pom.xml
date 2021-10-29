@@ -28,16 +28,38 @@
 			<scope>test</scope>
 		</dependency>
 		
-		<dependency>
-            <groupId>org.bouncycastle</groupId>
-            <artifactId>bcprov-jdk15on</artifactId>
-            <version>1.56</version>
-        </dependency>
         <dependency>
             <groupId>org.bouncycastle</groupId>
             <artifactId>bcpg-jdk15on</artifactId>
             <version>1.56</version>
         </dependency>
+        <dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk15on</artifactId>
+			<version>1.63</version>
+		</dependency>
+		<dependency>
+			<groupId>name.neuhalfen.projects.crypto.bouncycastle.openpgp</groupId>
+			<artifactId>bouncy-gpg</artifactId>
+			<version>2.3.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/me.sniggle/simple-pgp-api -->
+		<dependency>
+		    <groupId>me.sniggle</groupId>
+		    <artifactId>simple-pgp-api</artifactId>
+		    <version>0.1.0</version>
+		</dependency>
+				<!-- https://mvnrepository.com/artifact/me.sniggle/simple-pgp-java -->
+		<dependency>
+		    <groupId>me.sniggle</groupId>
+		    <artifactId>simple-pgp-java</artifactId>
+		    <version>0.1.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>commons-io</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>2.6</version>
+		</dependency>
 	</dependencies>
 
 	<build>

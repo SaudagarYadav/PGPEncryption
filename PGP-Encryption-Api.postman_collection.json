@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "482582f3-da0a-4208-8b0c-9f34a4140a9c",
-		"name": "PGP-Encryption-Api-postman-collection",
+		"name": "PGP-Encryption-Api",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -31,6 +31,34 @@
 							"port": "9099",
 							"path": [
 								"encrypt"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Encrypt content",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"inputFile\": \"C:\\\\Users\\\\test\\\\Desktop\\\\Encryption-test\\\\Test.xml\",\r\n    \"outputFile\": \"C:\\\\Users\\\\test\\\\Desktop\\\\Encryption-test\\\\Test_en.xml\",\r\n    \"publicKey\":\"C:\\\\Users\\\\test\\\\Desktop\\\\Encryption-test\\\\Public.asc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9099/encryptContent",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9099",
+							"path": [
+								"encryptContent"
 							]
 						}
 					},
@@ -70,6 +98,45 @@
 							"port": "9099",
 							"path": [
 								"decrypt"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Decrypt Content",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"inputFile\": \"C:\\\\Users\\\\test\\\\Desktop\\\\Encryption-test\\\\Test_en.xml\",\r\n    \"outputFile\": \"C:\\\\Users\\\\test\\\\Desktop\\\\Encryption-test\\\\Test_de.xml\",\r\n    \"passphrase\":\"75745767\",\r\n    \"privateKey\":\"C:\\\\Users\\\\test\\\\Desktop\\\\Encryption-test\\\\Private.asc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9099/decryptContent",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9099",
+							"path": [
+								"decryptContent"
 							]
 						}
 					},
