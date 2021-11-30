@@ -1,12 +1,12 @@
 {
 	"info": {
-		"_postman_id": "482582f3-da0a-4208-8b0c-9f34a4140a9c",
-		"name": "PGP-Encryption-Api",
+		"_postman_id": "a5e6847a-5839-469a-a93b-5def9043663c",
+		"name": "API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Sample request",
+			"name": "PGP",
 			"item": [
 				{
 					"name": "Encrypt",
@@ -43,7 +43,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"inputFile\": \"C:\\\\Users\\\\test\\\\Desktop\\\\Encryption-test\\\\Test.xml\",\r\n    \"outputFile\": \"C:\\\\Users\\\\test\\\\Desktop\\\\Encryption-test\\\\Test_en.xml\",\r\n    \"publicKey\":\"C:\\\\Users\\\\test\\\\Desktop\\\\Encryption-test\\\\Public.asc\"\r\n}",
+							"raw": "{\r\n    \"inputFile\": \"C:\\\\Users\\\\saudyadav\\\\Desktop\\\\Encryption-test\\\\Test.xml\",\r\n    \"outputFile\": \"C:\\\\Users\\\\saudyadav\\\\Desktop\\\\Encryption-test\\\\Test_en.xml\",\r\n    \"publicKey\":\"C:\\\\Users\\\\saudyadav\\\\Desktop\\\\Encryption-test\\\\Public.asc\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -121,7 +121,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"inputFile\": \"C:\\\\Users\\\\test\\\\Desktop\\\\Encryption-test\\\\Test_en.xml\",\r\n    \"outputFile\": \"C:\\\\Users\\\\test\\\\Desktop\\\\Encryption-test\\\\Test_de.xml\",\r\n    \"passphrase\":\"75745767\",\r\n    \"privateKey\":\"C:\\\\Users\\\\test\\\\Desktop\\\\Encryption-test\\\\Private.asc\"\r\n}",
+							"raw": "{\r\n    \"inputFile\": \"C:\\\\Users\\\\saudyadav\\\\Desktop\\\\Encryption-test\\\\Test_en.xml\",\r\n    \"outputFile\": \"C:\\\\Users\\\\saudyadav\\\\Desktop\\\\Encryption-test\\\\Test_de.xml\",\r\n    \"passphrase\":\"123456789\",\r\n    \"privateKey\":\"C:\\\\Users\\\\saudyadav\\\\Desktop\\\\Encryption-test\\\\Private.asc\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -137,6 +137,39 @@
 							"port": "9099",
 							"path": [
 								"decryptContent"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SFTP",
+			"item": [
+				{
+					"name": "Create file",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"hostUrl\": \"172.29.176.5\",\r\n    \"port\": 890,\r\n    \"userName\": \"cep-sftp-uat-retail-user\",\r\n    \"password\": \"Ky#@7F67!T2356\",\r\n    \"location\": \"C:\\\\Users\\\\saudyadav\\\\Desktop\\\\Path1.txt\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9099/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9099",
+							"path": [
+								"create"
 							]
 						}
 					},
